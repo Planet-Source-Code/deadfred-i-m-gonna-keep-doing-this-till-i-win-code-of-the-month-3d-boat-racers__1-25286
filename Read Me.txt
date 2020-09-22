@@ -1,0 +1,133 @@
+			Super Boats
+
+
+Wow, this game is actually fun! Amazing. I made it in about
+2 hours, including making the models, and thinking of the
+idea in the first place. It show what the engine is able to
+do. If its to fast, make the screen bigger, or stick a big
+for next loop in it.
+
+You use the arrow keys to move your boat throught the 
+checkpoints. You are heading towards the checkpoint
+with the circle around it. The start/finish has flags on the
+top, and you'll get prettly patterns down the side of the screen.
+Go throught each check point IN ORDER!!! 
+
+Keep going till your power suply is cut off. Your lap count in in
+the top corner. Evil Boris is the other boat, and if you let him
+win, you are a big fool, and don't deserve have VB on your computer.
+
+Ah well... C Ya l8a.
+
+
+
+
+           3333333 Ddddd  EEEEngine!!!!!
+              RRRReeeead MMMeeeeeeee!!
+
+
+Due to [no] public demand, heres a much more suitable
+3D engine, with loads mode cooments, loads let code,
+and it should be perfectly possible to make somthing
+from it.
+
+There are a few new things to look out for. For example,
+before you use the engine, you must create two varibles.
+The first is a varible that will hold information on the camara.
+To make this varible, create a varible with a suitable name,
+and make it of type Camaradis, instead of Integer or Byte.
+
+Next, make an array, and make it of type WorldDis, instead
+of Integer or String or anything else. These are the two
+varibles that are needed to run the engine. You can make more
+than one WorldDis array, and use either of them when ever you
+want. Or you can make an array of CamaraDis, and use any
+element in the array to hold different camara information.
+
+Now you have the data, you need to set up the engine. The
+first command you must use is 'Engine.Make_LookUp'. This is
+very important. Nothing will work untill you have run this!
+
+Next, you need to load your 3D models. To make 3D models for
+this engine, download AnimationShop from PlanetSourceCode.Com.
+[Do a search for DeadFred to find it] Learn how to use it, make
+some ace little characters. Save it, with File|Save, so you can
+come back to it later. Now choose File|Export. The settings are
+fine, don't mess! Press the export button, choose a filename and
+save. Wait 10 secs, and your done.
+
+To load the file you just created into the engine, use the following
+Command - Engine.LoadCompressedModel [FileName], ModelID -
+[FileName] is the name and location of the 3D file
+Model ID is a number that will link objects to their model. You
+can have many objects in a scene, but they might all share the same
+model. If you want ten tanks, you don't want to load the tank model
+ten times, you load it once, and then all the tank object have a link
+to the tank model. The ModelID can be any number above zero, and you
+can load as many models as VB can handle (probebly several thousand)
+
+Now you have your models in memory, you need to create your objects.
+It you want 4 helicopters, then you'll need 4 objects. Everything
+that can move independently of anything else must be a seperate
+object. When somthing blows up, all the little bits flying off
+are seperate objects.
+
+Remeber the array you created, of type WorldDis? That array holds
+objects. An array 4 elements long can hold 4 objects. A 100 elemnt
+long array holds 100 objects. Very simple. To load an object into
+the array, use the following 
+   Command 'Engine.SetWorldToModel [WorldID], [ModelID], Array()'
+
+The WorldID is the position in the array that the object will be
+loaded. If you have a 10 element long array, its no good trying to
+place it at WorldID 11, cos thats outside the array, and will crash
+the program :-(
+The ModelID is the link between the object and the model. If
+you want a helicopter, and you loaded the helicoter model into
+modelID 4, then you must also set the ModelID to 4 here. The
+Array() is the actuall array that the object will be loaded into.
+You can have more than one array in the program, each holding a
+different set of objects.
+
+
+Finally, you need to render [draw] the view. This takes into
+account the camara position, the objects and models, and any
+morphing effects used, and slaps it all into one command,
+abit like this one... _
+        Engine.RunEngine [PictureBox], CamaraDis, WorldDis()
+
+
+[PictureBox] is the name of a picture box where the image will
+be drawn. 
+CamaraDis the the name of a varible of type CamaraDis, which
+will be used to position the user within the scene.
+WorldDis() is the name of an array of type WorldDis. This array
+hods any objects that you want to be drawn in the scene.
+
+There are more functions, but these are the basics. Read the code
+to learn the rest, its all dead simple. You shouldn't have to go
+looking in the module, coz its not labled, not laid out nicely,
+and [in my opinion] is very complex code. However, the ret of
+the code, is ultra easy to understand, and yet should provide all
+that is nessessary to make a simple game, or other 3D related
+program...
+
+        Thanks for reading, and I hope you find a place for this in your apps.
+                                                        Magic Mushroom Software
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
